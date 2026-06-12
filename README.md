@@ -2,6 +2,18 @@
 
 Mini proyecto realizado con JavaScript para practicar estructuras de control, bucles, arrays, condicionales, funciones y números aleatorios.
 
+## Objetivo del proyecto
+
+Este proyecto fue realizado como práctica de JavaScript para consolidar conceptos fundamentales de programación, incluyendo:
+
+- Bucles `for` y `while`
+- Condicionales
+- Arrays
+- Funciones
+- Variables y constantes
+- Generación de números aleatorios
+- Uso de Git y GitHub
+
 ## Juegos incluidos
 
 ### 🎵 Playlist
@@ -32,6 +44,30 @@ Juego clásico contra la computadora con múltiples rondas y sistema de puntuaci
 - HTML5
 - CSS3
 - JavaScript
+
+## Instalación y uso
+
+### Opción 1: Ejecutar desde GitHub Pages
+
+Accede al proyecto desde:
+
+[URL de GitHub Pages]
+
+### Opción 2: Ejecutar localmente
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/mariafernandamamone/Javascript-Mini-Games.git
+```
+
+2. Entrar en la carpeta del proyecto:
+
+```bash
+cd Javascript-Mini-Games
+```
+
+3. Abrir el archivo `index.html` en el navegador o utilizar la extensión Live Server de VS Code.
 
 ## Autor
 
