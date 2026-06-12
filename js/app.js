@@ -17,6 +17,28 @@ function jugarCaraOCruz() {
 // Juego 3: Adivina el Número
 function jugarAdivinaNumero() {
     alert("Entraste a Adivina  el Número");
+
+    const numeroAzar = Math.floor(Math.random() * 10) + 1;
+
+let numeroUsuario = Number(prompt("Intenta adivinar el número del 1 al 10"));
+
+while (numeroUsuario !== numeroAzar) {
+
+    alert("Ese no es el número");
+
+    if (numeroUsuario < numeroAzar) {
+
+        alert("El número que elegiste es menor al número que debes adivinar. Sigue intentando!");
+        numeroUsuario = Number(prompt("Vuelve a elegir un número del 1 al 10"));
+        
+    } else {
+
+        alert("El número que elegiste es mayor al número que debes adivinar. Sigue intentando!");
+        numeroUsuario = Number(prompt("Vuelve a elegir un número del 1 al 10"));
+    }    
+} 
+
+alert("¡Acertaste!");
 }
 
 // Juego 4: Playlist
