@@ -6,53 +6,99 @@ console.log("Mini Games iniciado");
 
 // Juego 1: Piedra Papel Tijera
 function jugarPiedraPapelTijera() {
-    alert("Entraste a Piedra, Papel o Tijera");
+  alert("Entraste a Piedra, Papel o Tijera");
 }
 
 // Juego 2: Cara o Cruz
 function jugarCaraOCruz() {
-    alert("Entraste a Cara o Cruz");
+  alert("Entraste a Cara o Cruz");
+
+  const opciones = ["cara", "cruz"];
+
+  let eleccionUsuario = "";
+  let rachaActual = 0;
+  let mejorRacha = 0;
+
+  while (eleccionUsuario !== "salir") {
+    eleccionUsuario = prompt(
+      "Elige entre cara o cruz. Si quieres dejar de jugar elige salir.",
+    )
+      .toLowerCase()
+      .trim();
+
+    if (eleccionUsuario === "salir") {
+      alert(`Tu mejor racha fue: ${mejorRacha}
+    Gracias por jugar`);
+      break;
+    }
+
+    const indiceAleatorio = Math.floor(Math.random() * 2);
+    const opcionCompu = opciones[indiceAleatorio];
+
+    let mensaje = "";
+
+    if (eleccionUsuario === opcionCompu) {
+      rachaActual++;
+      mensaje = "¡Acertaste!";
+
+      if (rachaActual > mejorRacha) {
+        mejorRacha = rachaActual;
+      }
+    } else {
+      rachaActual = 0;
+      mensaje = "¡Perdiste!";
+    }
+
+    alert(`
+Resultado: ${opcionCompu}
+
+${mensaje}
+
+Racha actual: ${rachaActual}
+
+Mejor racha: ${mejorRacha}
+`);
+  }
 }
 
 // Juego 3: Adivina el Número
 function jugarAdivinaNumero() {
-    alert("Entraste a Adivina  el Número");
+  alert("Entraste a Adivina  el Número");
 
-    const numeroAzar = Math.floor(Math.random() * 10) + 1;
+  const numeroAzar = Math.floor(Math.random() * 10) + 1;
 
-let numeroUsuario = Number(prompt("Intenta adivinar el número del 1 al 10"));
+  let numeroUsuario = Number(prompt("Intenta adivinar el número del 1 al 10"));
 
-while (numeroUsuario !== numeroAzar) {
-
+  while (numeroUsuario !== numeroAzar) {
     alert("Ese no es el número");
 
     if (numeroUsuario < numeroAzar) {
-
-        alert("El número que elegiste es menor al número que debes adivinar. Sigue intentando!");
-        numeroUsuario = Number(prompt("Vuelve a elegir un número del 1 al 10"));
-        
+      alert(
+        "El número que elegiste es menor al número que debes adivinar. Sigue intentando!",
+      );
+      numeroUsuario = Number(prompt("Vuelve a elegir un número del 1 al 10"));
     } else {
+      alert(
+        "El número que elegiste es mayor al número que debes adivinar. Sigue intentando!",
+      );
+      numeroUsuario = Number(prompt("Vuelve a elegir un número del 1 al 10"));
+    }
+  }
 
-        alert("El número que elegiste es mayor al número que debes adivinar. Sigue intentando!");
-        numeroUsuario = Number(prompt("Vuelve a elegir un número del 1 al 10"));
-    }    
-} 
-
-alert("¡Acertaste!");
+  alert("¡Acertaste!");
 }
 
 // Juego 4: Playlist
 function crearPlaylist() {
-    alert("Entraste a Crear una Playlist");
+  alert("Entraste a Crear una Playlist");
 
-    const playlist = prompt("Ingrese el nombre de la playlist");
+  const playlist = prompt("Ingrese el nombre de la playlist");
 
-let cantidad = Number(prompt("¿Cuántas canciones desea agregar?"));
+  let cantidad = Number(prompt("¿Cuántas canciones desea agregar?"));
 
-const canciones = [];
+  const canciones = [];
 
-for (let i = 0; i < cantidad; i++) {
-
+  for (let i = 0; i < cantidad; i++) {
     const cancion = prompt("Ingresa una canción:");
 
     canciones.push(cancion);
@@ -60,15 +106,15 @@ for (let i = 0; i < cantidad; i++) {
     const faltan = cantidad - (i + 1);
 
     if (faltan > 0) {
-        alert(`Te quedan ${faltan} canciones por agregar`);
+      alert(`Te quedan ${faltan} canciones por agregar`);
     } else {
-        alert("Ya agregaste todas las canciones");
+      alert("Ya agregaste todas las canciones");
     }
 
     alert(`Playlist actual: ${canciones}`);
-}
+  }
 
-alert(`Tu playlist es: ${playlist}
+  alert(`Tu playlist es: ${playlist}
 con las siguientes canciones:
 ${canciones.join(", ")}`);
 }
@@ -80,8 +126,7 @@ ${canciones.join(", ")}`);
 let opcion = "";
 
 while (opcion !== "5") {
-
-    opcion = prompt(`
+  opcion = prompt(`
     ===== MINI GAMES =====
 
     1 - Piedra Papel Tijera
@@ -91,29 +136,28 @@ while (opcion !== "5") {
     5 - Salir
     `);
 
-    switch (opcion) {
+  switch (opcion) {
+    case "1":
+      jugarPiedraPapelTijera();
+      break;
 
-        case "1":
-            jugarPiedraPapelTijera();
-            break;
+    case "2":
+      jugarCaraOCruz();
+      break;
 
-        case "2":
-            jugarCaraOCruz();
-            break;
+    case "3":
+      jugarAdivinaNumero();
+      break;
 
-        case "3":
-            jugarAdivinaNumero();
-            break;
+    case "4":
+      crearPlaylist();
+      break;
 
-        case "4":
-            crearPlaylist();
-            break;
+    case "5":
+      alert("¡Gracias por jugar!");
+      break;
 
-        case "5":
-            alert("¡Gracias por jugar!");
-            break;
-
-        default:
-            alert("Opción inválida");
-    }
+    default:
+      alert("Opción inválida");
+  }
 }
