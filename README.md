@@ -51,7 +51,7 @@ Juego clásico contra la computadora con múltiples rondas y sistema de puntuaci
 
 Accede al proyecto desde:
 
-[URL de GitHub Pages]
+https://mariafernandamamone.github.io/Javascript-Mini-Games/
 
 ### Opción 2: Ejecutar localmente
 
