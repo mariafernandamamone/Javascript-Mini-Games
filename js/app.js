@@ -6,13 +6,62 @@ console.log("Mini Games iniciado");
 
 // Juego 1: Piedra Papel Tijera
 function jugarPiedraPapelTijera() {
-  alert("Entraste a Piedra, Papel o Tijera");
+  const rondas = Number(prompt("¿Cuántas rondas deseas jugar?"));
+
+  let puntajeUsuario = 0;
+  let puntajeCompu = 0;
+
+  for (let i = 1; i <= rondas; i++) {
+    const opciones = ["piedra", "papel", "tijera"];
+
+    const opcionUsuario = prompt("Elije una opción: piedra, papel o tijera")
+      .toLowerCase()
+      .trim();
+
+    const indiceAleatorio = Math.floor(Math.random() * 3);
+
+    const opcionCompu = opciones[indiceAleatorio];
+
+    let ganadorRonda = "";
+
+    if (!opciones.includes(opcionUsuario)) {
+      alert("Opción inválida");
+    } else {
+      alert(`
+            Usuario: ${opcionUsuario}
+            Computadora: ${opcionCompu}
+            `);
+
+      if (opcionCompu === opcionUsuario) {
+        ganadorRonda = "Empate";
+      } else if (
+        (opcionUsuario === "piedra" && opcionCompu === "tijera") ||
+        (opcionUsuario === "tijera" && opcionCompu === "papel") ||
+        (opcionUsuario === "papel" && opcionCompu === "piedra")
+      ) {
+        ganadorRonda = "Ganaste";
+        puntajeUsuario++;
+      } else {
+        ganadorRonda = "Ganó la computadora";
+        puntajeCompu++;
+      }
+    }
+
+    const rondasRestantes = rondas - i;
+
+    alert(`
+Ronda: ${i} de ${rondas}
+🙍‍♀️ Jugadora: ${opcionUsuario}
+👾 Computadora: ${opcionCompu}
+Ganador: ${ganadorRonda}
+Puntaje: ${puntajeUsuario} (Jugadora) - ${puntajeCompu} (Computadora)
+Restan ${rondasRestantes} rondas
+`);
+  }
 }
 
 // Juego 2: Cara o Cruz
 function jugarCaraOCruz() {
-  alert("Entraste a Cara o Cruz");
-
   const opciones = ["cara", "cruz"];
 
   let eleccionUsuario = "";
@@ -63,8 +112,6 @@ Mejor racha: ${mejorRacha}
 
 // Juego 3: Adivina el Número
 function jugarAdivinaNumero() {
-  alert("Entraste a Adivina  el Número");
-
   const numeroAzar = Math.floor(Math.random() * 10) + 1;
 
   let numeroUsuario = Number(prompt("Intenta adivinar el número del 1 al 10"));
@@ -90,8 +137,6 @@ function jugarAdivinaNumero() {
 
 // Juego 4: Playlist
 function crearPlaylist() {
-  alert("Entraste a Crear una Playlist");
-
   const playlist = prompt("Ingrese el nombre de la playlist");
 
   let cantidad = Number(prompt("¿Cuántas canciones desea agregar?"));
